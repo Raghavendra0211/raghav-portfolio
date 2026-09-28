@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap");
+@import "tailwindcss";
+
+/* ── Tokens ───────────────────────────────────────── */
+:root {
+  --bg:       #080808;
+  --surface:  #0d0d0d;
+  --surface2: #111111;
+  --gold:     #C8A96B;
+  --gold-lt:  #E0C58A;
+  --gold-dk:  #9A7A3A;
+  --ivory:    #F5F0E8;
+  --muted:    rgba(245,240,232,0.45);
+  --border:   rgba(255,255,255,0.07);
+  --border-g: rgba(200,169,107,0.15);
+  --radius:   20px;
+  --max-w:    1240px;
+  --pad-x:    clamp(24px, 5vw, 60px);
+  --section:  clamp(80px, 10vw, 140px);
+}
+
+/* ── Reset ────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  font-family: "DM Sans", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: auto;
+}
+
+body { min-height: 100svh; }
+#root { min-height: 100svh; }
+
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+::selection { background: rgba(200,169,107,0.2); color: var(--gold-lt); }
+
+/* ── Lenis ────────────────────────────────────────── */
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+
+/* ── Layout ───────────────────────────────────────── */
+.wrap {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+section {
+  padding: var(--section) 0;
+}
+
+/* ── Typography ───────────────────────────────────── */
+.serif { font-family: "DM Serif Display", Georgia, serif; }
+
+h1,h2,h3,h4 {
+  font-family: "DM Serif Display", Georgia, serif;
+  font-weight: 400;
+  color: var(--ivory);
+}
+
+.display {
+  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.heading {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.subheading {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.eyebrow {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.body {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.caption {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(245,240,232,0.38);
+}
+
+/* ── Buttons ──────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 100px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: rgba(200,169,107,0.12);
+  border-color: rgba(200,169,107,0.35);
+  color: var(--gold-lt);
+}
+.btn-primary:hover { background: rgba(200,169,107,0.2); }
+
+.btn-outline {
+  background: transparent;
+  border-color: rgba(255,255,255,0.12);
+  color: rgba(245,240,232,0.55);
+}
+.btn-outline:hover { border-color: var(--border-g); color: var(--gold-lt); }
+
+/* ── Cards ────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.25s ease;
+}
+.card:hover { border-color: var(--border-g); }
+
+/* ── Divider ──────────────────────────────────────── */
+.rule {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,169,107,0.2), transparent);
+}
+
+/* ── Gold text gradient ───────────────────────────── */
+.gold-text {
+  background: linear-gradient(135deg, #9A7A3A 0%, #C8A96B 30%, #F0DCA8 55%, #D6B978 75%, #9A7A3A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Section border top ───────────────────────────── */
+.border-top { border-top: 1px solid rgba(200,169,107,0.08); }
+
+/* ── Three.js canvas ──────────────────────────────── */
+canvas { display: block; }
+
+/* ── Image reveal ─────────────────────────────────── */
+.img-wrap {
+  overflow: hidden;
+  border-radius: 24px;
+}
+.img-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.img-wrap:hover img { transform: scale(1.03); }
